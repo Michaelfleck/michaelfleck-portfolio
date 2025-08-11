@@ -4,7 +4,7 @@ import { Thpace, ThpaceGL } from "thpace";
 
 export const Home = () => {
   const canvasRef = useRef(null);
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -28,16 +28,16 @@ export const Home = () => {
         colors: ["#343333", "#030314", "#343333"],
         triangleSize: 130,
         particleSettings: {
-          count: [10,20],
-          radius: [0.5,1],
+          count: [10, 20],
+          radius: [0.5, 1],
           opacity: [0.05, 0.5],
-        }
+        },
       });
 
       console.log("ThpaceGL initialized!");
-    }
+    };
 
-    setAnimatedBackground()
+    setAnimatedBackground();
   }, [mounted]);
 
   return (
@@ -70,7 +70,7 @@ export const Home = () => {
           <div className="flex justify-center space-x-4">
             <a
               href="#projects"
-              className="bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 
+              className="border border-blue500/50 text-blue-500 py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 
             hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.4)]"
             >
               View Projects
@@ -82,6 +82,15 @@ export const Home = () => {
              hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.2)] hover:bg-blue-500/10"
             >
               Contact Me
+            </a>
+          </div>
+          <div className="text-center mt-6">
+            <a
+              href="../../../resume/Michael_Fleck_Resume.pdf"
+              download
+              className="cursor-pointer bg-blue-500 text-white py-3 px-6 rounded font-medium transition hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] inline-block"
+            >
+              Download my Resume
             </a>
           </div>
         </div>
