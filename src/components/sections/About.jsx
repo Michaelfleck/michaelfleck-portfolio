@@ -6,22 +6,23 @@ export const About = () => {
     "TypeScript",
     "React",
     "Angular",
-    "HTML/CSS",
     "HTML5/CSS3",
     "Tailwind CSS",
-    "TailwindCSS",
     "Jasmine/Karma (Testing)",
   ];
   const backendSkills = [
     "Python",
     "SQL",
     "MySQL",
+    "PostgreSQL",
+    "Knex.js",
     "Oracle",
+    "GraphQL",
     "Node.js",
     "REST APIs",
     "Airflow (DAGs)",
-    "Airflow",
     "ETL Pipelines",
+    "Oauth"
   ];
 
   const dataAnalytics = [
@@ -46,6 +47,7 @@ export const About = () => {
     "Google Cloud Platform",
     "Azure (Basic)",
     "UDeploy",
+    "Deployment / Workflow Automation",
   ];
 
   return (

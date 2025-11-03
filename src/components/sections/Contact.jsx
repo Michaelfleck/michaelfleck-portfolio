@@ -1,33 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RevealOnScroll } from "../RevealOnScroll";
 import emailjs from "emailjs-com";
 
 export const Contact = () => {
-    const [loading, setLoading] = useState(false)
-    const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: ""
-    })
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  useEffect(() => {
+    // log env vars so you can confirm they are available in the deployed build
+    console.log("EmailJS env:", {
+      service: import.meta.env.VITE_SERVICE_ID,
+      template: import.meta.env.VITE_TEMPLATE_ID,
+      key: import.meta.env.VITE_PUBLIC_KEY,
+    });
+
+    // initialize EmailJS (safe to call even if already provided to sendForm)
+    if (import.meta.env.VITE_PUBLIC_KEY) {
+      try {
+        // emailjs.init exists on emailjs-com; this helps avoid some failures
+        emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
+      } catch (e) {
+        console.warn("emailjs.init failed", e);
+      }
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (loading) return;
 
-    setSubmitted(false)
-    setLoading(true)
+    setSubmitted(false);
+    setLoading(true);
 
     emailjs
-      .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, e.target, import.meta.env.VITE_PUBLIC_KEY)
+      .sendForm(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_PUBLIC_KEY
+      )
       .then(() => {
-        setSubmitted(true)
-        setFormData({name:"", email:"", message:""})
-      }).catch(() => {
-        setSubmitted(false)
-      }).finally(() => {
-        setLoading(false)
+        setSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch(() => {
+        setSubmitted(false);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -52,7 +78,9 @@ export const Contact = () => {
                 value={formData.name}
                 className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
                 placeholder="Name..."
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
               />
             </div>
 
@@ -65,7 +93,9 @@ export const Contact = () => {
                 value={formData.email}
                 className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
                 placeholder="example@email.com"
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
               />
             </div>
 
@@ -78,7 +108,9 @@ export const Contact = () => {
                 rows={5}
                 className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
                 placeholder="Your Message..."
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
               />
             </div>
 
@@ -87,7 +119,7 @@ export const Contact = () => {
               type="submit"
               className="w-full bg-blue-500 disabled:opacity-80 disabled:cursor-notallowed text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59.130,246,0.4]"
             >
-              {loading ? 'Loading...' : 'Submit'}
+              {loading ? "Loading..." : "Submit"}
             </button>
           </form>
           {submitted ? (
