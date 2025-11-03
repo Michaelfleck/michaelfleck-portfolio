@@ -13,17 +13,8 @@ export const Contact = () => {
   });
 
   useEffect(() => {
-    // log env vars so you can confirm they are available in the deployed build
-    console.log("EmailJS env:", {
-      service: import.meta.env.VITE_SERVICE_ID,
-      template: import.meta.env.VITE_TEMPLATE_ID,
-      key: import.meta.env.VITE_PUBLIC_KEY,
-    });
-
-    // initialize EmailJS (safe to call even if already provided to sendForm)
     if (import.meta.env.VITE_PUBLIC_KEY) {
       try {
-        // emailjs.init exists on emailjs-com; this helps avoid some failures
         emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
       } catch (e) {
         console.warn("emailjs.init failed", e);
