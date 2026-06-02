@@ -20,8 +20,10 @@ export const Home = () => {
     const words = [
       "Front-End Developer",
       "Full-Stack Engineer",
-      "Problem Solver",
-      "UI Craftsman",
+      "React Developer",
+      "Data & Platform Development",
+      "Data Analyst",
+      "BI Developer",
     ];
     let wi = 0, ci = 0, deleting = false, timer;
     const tick = () => {
@@ -198,12 +200,12 @@ export const Home = () => {
               </span>
             </h1>
             <p className="role">
-              I build <span className="typed" ref={typedRef}></span>
+              <span className="typed" ref={typedRef}></span>
               <span className="cursor"></span>
             </p>
             <p className="intro">
-              A software developer who thrives on solving complex problems and
-              building efficient, scalable systems — turning messy workflows into
+              I'm a software developer who thrives on solving complex problems and
+              building efficient, scalable systems by turning messy workflows into
               clean, maintainable products people actually enjoy using.
             </p>
             <div className="hero-actions">
@@ -240,7 +242,7 @@ export const Home = () => {
               </span>
               <div>
                 <span className="label">BASED IN</span>
-                <span className="val">United States</span>
+                <span className="val">Charlotte, NC</span>
               </div>
             </div>
           </RevealOnScroll>

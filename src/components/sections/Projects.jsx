@@ -12,7 +12,7 @@ const projects = [
   },
   {
     num: "/ 02",
-    title: "Swine App — Nonprofit Fundraising Platform",
+    title: "Swine App: Nonprofit Fundraising Platform",
     desc: "Partnered with a senior developer to build a donation-tracking platform for a Houston Rodeo nonprofit, handling real fundraising workflows.",
     tags: ["React", "Node.js", "Express", "MySQL"],
     link: "https://github.com/swine-app/front-end",
@@ -20,7 +20,7 @@ const projects = [
   },
   {
     num: "/ 03",
-    title: "Plant Shop — E-Commerce App",
+    title: "Plant Shop: E-Commerce App",
     desc: "A full-stack plant store with live product data pulled from the Trefle.io botanical database, cart flow, and a clean responsive storefront.",
     tags: ["React", "Node.js", "Express", "REST API", "Tailwind CSS"],
     link: "https://github.com/Michaelfleck/Plant-Shop",
@@ -39,9 +39,8 @@ export const Projects = () => {
           Things I've <span className="grad-text">built.</span>
         </RevealOnScroll>
         <RevealOnScroll as="p" delay={1} className="lead" style={{ marginBottom: "48px" }}>
-          A few projects that show how I approach problems — from API integrations to
-          full-stack products. Add a screenshot to any card via the ImageSlot
-          component.
+          A few projects that show how I approach problems, from API integrations to
+          full-stack products.
         </RevealOnScroll>
 
         <div className="projects-grid">
@@ -70,7 +69,7 @@ export const Projects = () => {
               <div className="pthumb">
                 <ImageSlot
                   src={p.image}
-                  placeholder={`Add /public${p.image}`}
+                  placeholder={`Missing /public${p.image}`}
                   alt={p.title}
                 />
               </div>

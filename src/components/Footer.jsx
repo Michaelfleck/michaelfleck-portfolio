@@ -7,7 +7,7 @@ export const Footer = () => {
           <span className="dot"></span>michael<span className="muted">.fleck</span>
         </a>
         <span className="copy">
-          © {year} Michael Fleck — Designed &amp; built with care.
+          © {year} Michael Fleck · Designed &amp; built with care.
         </span>
         <a href="#hero" className="totop">
           Back to top{" "}

@@ -9,8 +9,8 @@ const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const channels = [
   {
     label: "Email",
-    value: "hello@michaelfleck.dev",
-    href: "mailto:hello@michaelfleck.dev",
+    value: "michael.j.fleck@gmail.com",
+    href: "mailto:michael.j.fleck@gmail.com",
     external: false,
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -33,7 +33,7 @@ const channels = [
   {
     label: "LinkedIn",
     value: "Connect with me",
-    href: "#",
+    href: "https://www.linkedin.com/in/michaeljfleck/",
     external: true,
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -100,7 +100,7 @@ export const Contact = () => {
           </RevealOnScroll>
           <RevealOnScroll as="p" delay={1}>
             Have a role, a project, or just want to talk shop? My inbox is always
-            open — I'll get back to you quickly.
+            open. I'll get back to you quickly.
           </RevealOnScroll>
           <RevealOnScroll as="div" delay={2} className="contact-channels">
             {channels.map((c) => (
@@ -117,7 +117,7 @@ export const Contact = () => {
                   <span className="label">{c.label}</span>
                   <span className="value">{c.value}</span>
                 </div>
-                <ExtIcon />
+                {c.external && <ExtIcon />}
               </a>
             ))}
           </RevealOnScroll>
@@ -170,13 +170,13 @@ export const Contact = () => {
           </button>
           {status === "sent" && (
             <div className="form-note ok show">
-              Thanks — your message is on its way. I'll get back to you shortly.
+              Thanks for reaching out! <br />Your message is on its way. I'll get back to you ASAP.
             </div>
           )}
           {status === "error" && (
             <div className="form-note err show">
               Something went wrong sending your message. Please email me directly at{" "}
-              <a href="mailto:hello@michaelfleck.dev">hello@michaelfleck.dev</a>.
+              <a href="mailto:michael.j.fleck@gmail.com">michael.j.fleck@gmail.com</a>.
             </div>
           )}
         </RevealOnScroll>

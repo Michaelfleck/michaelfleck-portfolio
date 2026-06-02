@@ -49,11 +49,17 @@ const skills = [
 
 const experience = [
   {
+    when: "Sep 2025 — Jan 2026",
+    role: "Web Developer · Contract",
+    org: "Paradane",
+    desc: "Developed a responsive business landing page with Next.js, React, and TailwindCSS, engineering reusable components (nav, service cards, responsive layouts), implementing smooth scrolling and dynamic UI behaviors, and applying image optimization and SEO best practices.",
+    now: true,
+  },
+  {
     when: "Jul 2022 — Feb 2025",
     role: "Senior Associate",
     org: "Infosys",
     desc: "Trained in Java, Unix, Python, Spark & Spark SQL, then contracted to Wells Fargo to implement and fix data-management features in an internal web application.",
-    now: true,
   },
   {
     when: "Mar 2023 — Dec 2024",
@@ -99,7 +105,7 @@ export const About = () => {
               interfaces, data pipelines, and full-stack delivery. My work has taken
               me from enterprise banking platforms at{" "}
               <span className="highlight">Wells Fargo</span> to ERP migrations and
-              fundraising apps — always with the same goal:{" "}
+              fundraising apps, always with the same goal:{" "}
               <span className="highlight">
                 build robust solutions that streamline workflows and elevate the user
                 experience.
