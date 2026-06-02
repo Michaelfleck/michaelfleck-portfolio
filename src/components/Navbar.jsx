@@ -1,41 +1,77 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react";
+
+const links = [
+  { id: "hero", idx: "01", label: "Home" },
+  { id: "about", idx: "02", label: "About" },
+  { id: "projects", idx: "03", label: "Work" },
+  { id: "contact", idx: "04", label: "Contact" },
+];
 
 export const Navbar = ({ menuOpen, setMenuOpen }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("hero");
 
-    useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : ""
-    }, [menuOpen])
+  useEffect(() => {
+    const sections = links
+      .map((l) => document.getElementById(l.id))
+      .filter(Boolean);
 
-    return <nav className="fixed top-0 w-full z-40 bg-[rgba(10, 10, 10, 0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
-        <div className="max-w-5xl mx-auto px-4">
-            <div className="flex justify-between items-center h-16">
-                <a href="#home" className="font-mono text-xl font-bold text-white">
-                    {" "}
-                    michael<span className="text-blue-500">.fleck.portfolio</span>{" "}
-                </a>
+    const onScroll = () => {
+      const st = window.scrollY || document.documentElement.scrollTop;
+      setScrolled(st > 24);
 
-                <div 
-                    className="w-7 h-5 relative cursor-pointer z-40 md:hidden"
-                    onClick={() => setMenuOpen((prev) => !prev )} 
-                >
-                    &#9776;
-                </div>
+      const mid = window.scrollY + window.innerHeight * 0.4;
+      let current = sections[0];
+      for (const s of sections) if (s.offsetTop <= mid) current = s;
+      if (current) setActive(current.id);
+    };
 
-                <div className="hidden md:flex items-cetner space-x-8">
-                    <a href="#home" className="text-gray-300 hove:text-white transition-colors">
-                        {" "}Home{" "}
-                    </a>
-                    <a href="#about" className="text-gray-300 hove:text-white transition-colors">
-                        {" "}About{" "}
-                    </a>
-                    <a href="#projects" className="text-gray-300 hove:text-white transition-colors">
-                        {" "}Projects{" "}
-                    </a>
-                    <a href="#contact" className="text-gray-300 hove:text-white transition-colors">
-                        {" "}Contact{" "}
-                    </a>
-                </div>
-            </div>
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  return (
+    <nav className={`nav${scrolled ? " scrolled" : ""}`}>
+      <div className="nav-inner">
+        <a href="#hero" className="logo">
+          <span className="dot"></span>michael<span className="muted">.fleck</span>
+        </a>
+
+        <div className="nav-links">
+          {links.map((l) => (
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              className={active === l.id ? "active" : ""}
+            >
+              <span className="idx">{l.idx}</span>
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="/resume/Michael_Fleck_Resume.pdf"
+            download
+            className="btn btn-ghost nav-cta"
+          >
+            Résumé ↓
+          </a>
         </div>
+
+        <button
+          className={`burger${menuOpen ? " open" : ""}`}
+          aria-label="Menu"
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
-}
+  );
+};

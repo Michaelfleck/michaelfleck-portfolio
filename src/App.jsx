@@ -1,36 +1,28 @@
 import { useState } from "react";
-import "./App.css";
-import "./index.css";
-import { LoadingScreen } from "./components/LoadingScreen";
+import { ScrollProgress } from "./components/ScrollProgress";
 import { Navbar } from "./components/Navbar";
 import { MobileMenu } from "./components/MobileMenu";
+import { Footer } from "./components/Footer";
 import { Home } from "./components/sections/Home";
 import { About } from "./components/sections/About";
 import { Projects } from "./components/sections/Projects";
 import { Contact } from "./components/sections/Contact";
 
-
-function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
+export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
-      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
-      <div
-        className={`min-h-screen transition-opacity duration-1200 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        } text-gray-100`}
-      >
-        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <ScrollProgress />
+      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <main>
         <Home />
         <About />
         <Projects />
         <Contact />
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }
-
-export default App;

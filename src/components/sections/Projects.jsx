@@ -1,168 +1,83 @@
 import { RevealOnScroll } from "../RevealOnScroll";
+import { ImageSlot } from "../ImageSlot";
+
+const projects = [
+  {
+    num: "/ 01",
+    title: "Reddit → Spotify Playlist Creator",
+    desc: "A backend service that generates Spotify playlists from trending Reddit posts, with robust API integrations and persistent token storage.",
+    tags: ["Node.js", "PostgreSQL", "Express", "Knex", "Spotify API", "Reddit API"],
+    link: "https://github.com/Michaelfleck/SpotifyRedditMusicFinder",
+    image: "/projects/reddit-spotify.png",
+  },
+  {
+    num: "/ 02",
+    title: "Swine App — Nonprofit Fundraising Platform",
+    desc: "Partnered with a senior developer to build a donation-tracking platform for a Houston Rodeo nonprofit, handling real fundraising workflows.",
+    tags: ["React", "Node.js", "Express", "MySQL"],
+    link: "https://github.com/swine-app/front-end",
+    image: "/projects/swine-app.png",
+  },
+  {
+    num: "/ 03",
+    title: "Plant Shop — E-Commerce App",
+    desc: "A full-stack plant store with live product data pulled from the Trefle.io botanical database, cart flow, and a clean responsive storefront.",
+    tags: ["React", "Node.js", "Express", "REST API", "Tailwind CSS"],
+    link: "https://github.com/Michaelfleck/Plant-Shop",
+    image: "/projects/plant-shop.png",
+  },
+];
 
 export const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="min-h-screen flex items-center justify-center py-20"
-    >
-      <RevealOnScroll>
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
-            {" "}
-            Featured Projects{" "}
-          </h2>
+    <section id="projects" className="section">
+      <div className="wrap">
+        <RevealOnScroll as="p" className="eyebrow">
+          <span className="num">03</span>&nbsp;Selected Work
+        </RevealOnScroll>
+        <RevealOnScroll as="h2" className="section-title">
+          Things I've <span className="grad-text">built.</span>
+        </RevealOnScroll>
+        <RevealOnScroll as="p" delay={1} className="lead" style={{ marginBottom: "48px" }}>
+          A few projects that show how I approach problems — from API integrations to
+          full-stack products. Add a screenshot to any card via the ImageSlot
+          component.
+        </RevealOnScroll>
 
-          <div className="grid grid-cols-2 md:grid-col-2 gap-6">
-            <div className="p-6 round-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition">
-              <h3 className="text-xl font-bold mb-2">
-                {" "}
-                Reddit/Spotify Playlist Creator
-              </h3>
-              <p className="text-gray-400 mb-4">
-                Built a backend service that generates Spotify playlists from
-                trending Reddit posts, leveraging API integrations and
-                persistent token storage.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {[
-                  "Node.js",
-                  "PostgreSQL",
-                  "Express",
-                  "Knex",
-                  "Spotify API",
-                  "Reddit API",
-                ].map((tech, key) => (
-                  <span
-                    key={key}
-                    className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
-                "
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex justify-between items-center">
+        <div className="projects-grid">
+          {projects.map((p) => (
+            <RevealOnScroll as="article" key={p.title} className="project">
+              <div className="pnum">{p.num}</div>
+              <div className="pbody">
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+                <div className="tags">
+                  {p.tags.map((t) => (
+                    <span className="tag" key={t}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
                 <a
-                  href="https://github.com/Michaelfleck/SpotifyRedditMusicFinder"
+                  className="plink"
+                  href={p.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
                 >
-                  {" "}
-                  View Project →{" "}
+                  View project <span>↗</span>
                 </a>
               </div>
-            </div>
-
-            <div className="p-6 round-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition">
-              <h3 className="text-xl font-bold mb-2">
-                {" "}
-                Swine App - Nonprofit Fundraising Platform
-              </h3>
-              <p className="text-gray-400 mb-4">
-                Collaborated with a senior developer to create a fundraising
-                platform for tracking donations for a Houston Rodeo nonprofit.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["MySQL", "Express", "React", "Node.js"].map((tech, key) => (
-                  <span
-                    key={key}
-                    className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
-                "
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="pthumb">
+                <ImageSlot
+                  src={p.image}
+                  placeholder={`Add /public${p.image}`}
+                  alt={p.title}
+                />
               </div>
-
-              <div className="flex justify-between items-center">
-                <a
-                  href="https://github.com/swine-app/front-end"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
-                >
-                  {" "}
-                  View Project →{" "}
-                </a>
-              </div>
-            </div>
-
-            <div className="p-6 round-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition">
-              <h3 className="text-xl font-bold mb-2">
-                {" "}
-                Plant Shop E-Commerce App
-              </h3>
-              <p className="text-gray-400 mb-4">
-                Developed a full-stack plant shopping app with live product data
-                pulled from the Trefle.io plant database.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {[
-                  "React",
-                  "Node.js",
-                  "Express",
-                  "REST API",
-                  "Tailwind CSS",
-                ].map((tech, key) => (
-                  <span
-                    key={key}
-                    className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
-                "
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex justify-between items-center">
-                <a
-                  href="https://github.com/Michaelfleck/Plant-Shop"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
-                >
-                  {" "}
-                  View Project →{" "}
-                </a>
-              </div>
-            </div>
-
-            {/* <div className="p-6 round-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition">
-              <h3 className="text-xl font-bold mb-2"> [Lorem Ipsum]</h3>
-              <p className="text-gray-400 mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["React", "PostgreSQL", "Express", "..."].map((tech, key) => (
-                  <span
-                    key={key}
-                    className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
-                "
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex justify-between items-center">
-                <a
-                  href="#"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
-                >
-                  {" "}
-                  View Project →{" "}
-                </a>
-              </div>
-            </div> */}
-          </div>
+            </RevealOnScroll>
+          ))}
         </div>
-      </RevealOnScroll>
+      </div>
     </section>
   );
 };
