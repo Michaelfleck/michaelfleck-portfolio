@@ -4,6 +4,14 @@ import { ImageSlot } from "../ImageSlot";
 const projects = [
   {
     num: "/ 01",
+    title: "Paradane: Business Landing Page",
+    desc: "Responsive business landing page built as a contract engagement, featuring reusable UI components, smooth scrolling interactions, Next.js image optimization, and SEO best practices.",
+    tags: ["Next.js", "React", "Tailwind CSS"],
+    link: "https://paradane.com/",
+    image: "/projects/paradane.png",
+  },
+  {
+    num: "/ 02",
     title: "Reddit → Spotify Playlist Creator",
     desc: "A backend service that generates Spotify playlists from trending Reddit posts, with robust API integrations and persistent token storage.",
     tags: ["Node.js", "PostgreSQL", "Express", "Knex", "Spotify API", "Reddit API"],
@@ -11,7 +19,7 @@ const projects = [
     image: "/projects/reddit-spotify.png",
   },
   {
-    num: "/ 02",
+    num: "/ 03",
     title: "Swine App: Nonprofit Fundraising Platform",
     desc: "Partnered with a senior developer to build a donation-tracking platform for a Houston Rodeo nonprofit, handling real fundraising workflows.",
     tags: ["React", "Node.js", "Express", "MySQL"],
@@ -19,7 +27,7 @@ const projects = [
     image: "/projects/swine-app.png",
   },
   {
-    num: "/ 03",
+    num: "/ 04",
     title: "Plant Shop: E-Commerce App",
     desc: "A full-stack plant store with live product data pulled from the Trefle.io botanical database, cart flow, and a clean responsive storefront.",
     tags: ["React", "Node.js", "Express", "REST API", "Tailwind CSS"],
