@@ -1,3 +1,10 @@
+import {
+  SiJavascript, SiTypescript, SiReact, SiAngular, SiHtml5, SiTailwindcss, SiJasmine,
+  SiNodedotjs, SiPython, SiPostgresql, SiGraphql,
+  SiApacheairflow, SiGrafana,
+  SiGit, SiJenkins, SiGooglecloud, SiJira,
+} from "react-icons/si";
+import { FiBarChart2, FiGrid, FiCloud } from "react-icons/fi";
 import { RevealOnScroll } from "../RevealOnScroll";
 
 const skills = [
@@ -9,7 +16,14 @@ const skills = [
         <polyline points="8 6 2 12 8 18" />
       </svg>
     ),
-    items: ["JavaScript / TypeScript", "React & Angular", "HTML5 / CSS3", "Tailwind CSS", "Jasmine / Karma"],
+    items: [
+      { label: "JavaScript", icon: <SiJavascript /> },
+      { label: "TypeScript", icon: <SiTypescript /> },
+      { label: "React & Angular", icon: <SiReact /> },
+      { label: "HTML5 / CSS3", icon: <SiHtml5 /> },
+      { label: "Tailwind CSS", icon: <SiTailwindcss /> },
+      { label: "Jasmine / Karma", icon: <SiJasmine /> },
+    ],
   },
   {
     title: "Back-End",
@@ -20,7 +34,13 @@ const skills = [
         <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
       </svg>
     ),
-    items: ["Node.js / Express", "Python", "SQL / PostgreSQL / MySQL", "GraphQL & REST APIs", "Knex.js / OAuth"],
+    items: [
+      { label: "Node.js / Express", icon: <SiNodedotjs /> },
+      { label: "Python", icon: <SiPython /> },
+      { label: "PostgreSQL / MySQL", icon: <SiPostgresql /> },
+      { label: "GraphQL & REST APIs", icon: <SiGraphql /> },
+      { label: "Knex.js / OAuth", icon: <SiNodedotjs /> },
+    ],
   },
   {
     title: "Data & Analytics",
@@ -32,7 +52,13 @@ const skills = [
         <rect x="17" y="13" width="3" height="4" />
       </svg>
     ),
-    items: ["ETL Pipelines / Airflow", "Tableau / Power BI", "Grafana dashboards", "Excel (advanced)", "Data visualization"],
+    items: [
+      { label: "Airflow / ETL", icon: <SiApacheairflow /> },
+      { label: "Tableau / Power BI", icon: <FiBarChart2 /> },
+      { label: "Grafana dashboards", icon: <SiGrafana /> },
+      { label: "Excel (advanced)", icon: <FiGrid /> },
+      { label: "Data visualization", icon: <FiBarChart2 /> },
+    ],
   },
   {
     title: "DevOps & Tools",
@@ -43,13 +69,19 @@ const skills = [
         <path d="m2 12 10 5 10-5" />
       </svg>
     ),
-    items: ["Git & CI/CD", "Jenkins / UDeploy", "GCP & Azure", "Agile / Scrum", "Jira & Confluence"],
+    items: [
+      { label: "Git & CI/CD", icon: <SiGit /> },
+      { label: "Jenkins / UDeploy", icon: <SiJenkins /> },
+      { label: "GCP & Azure", icon: <FiCloud /> },
+      { label: "Agile / Scrum", icon: <SiJira /> },
+      { label: "Jira & Confluence", icon: <SiJira /> },
+    ],
   },
 ];
 
 const experience = [
   {
-    when: "Sep 2025 — Jan 2026",
+    when: "Sep 2025 — Current",
     role: "Web Developer · Contract",
     org: "Paradane",
     desc: "Developed a responsive business landing page with Next.js, React, and TailwindCSS, engineering reusable components (nav, service cards, responsive layouts), implementing smooth scrolling and dynamic UI behaviors, and applying image optimization and SEO best practices.",
@@ -82,8 +114,16 @@ const experience = [
 ];
 
 const education = [
-  { when: "Degree", what: "B.B.A., Management Information Systems", where: "Texas Tech University" },
-  { when: "Certificate", what: "Full-Stack Software Engineering, Live", where: "Flatiron School" },
+  {
+    when: "Degree",
+    what: "B.B.A., Management Information Systems",
+    where: "Texas Tech University",
+  },
+  {
+    when: "Certificate",
+    what: "Full-Stack Software Engineering, Live",
+    where: "Flatiron School",
+  },
 ];
 
 export const About = () => {
@@ -101,20 +141,25 @@ export const About = () => {
           </RevealOnScroll>
           <RevealOnScroll as="div" delay={1} className="body">
             <p>
-              I'm a software developer with a background spanning front-end
-              interfaces, data pipelines, and full-stack delivery. My work has taken
-              me from enterprise banking platforms at{" "}
-              <span className="highlight">Wells Fargo</span> to ERP migrations and
-              fundraising apps, always with the same goal:{" "}
+              I work at the intersection of data and front-end development. At{" "}
+              <span className="highlight">Wells Fargo</span>, I built data
+              pipelines and reporting tools using Python, SQL, Airflow, and
+              Tableau to support enterprise banking systems. Outside of that,
+              I've built full front-end applications with React, Next.js, and
+              Tailwind, including{" "}
               <span className="highlight">
-                build robust solutions that streamline workflows and elevate the user
-                experience.
+                a production site for a digital marketing startup
               </span>
+              .
+            </p>
+            <p>
+              I like figuring out what a system actually needs to do, then
+              building it so it holds up. Here's the toolkit I work in most.
             </p>
             <p>
               I care about clean, maintainable code, thoughtful interfaces, and
-              shipping things that hold up in production. Below is the toolkit I reach
-              for.
+              shipping things that hold up in production. Below is the toolkit I
+              reach for.
             </p>
           </RevealOnScroll>
         </div>
@@ -124,14 +169,22 @@ export const About = () => {
         </RevealOnScroll>
         <div className="skills-grid">
           {skills.map((s, i) => (
-            <RevealOnScroll as="div" key={s.title} delay={i} className="skill-card">
+            <RevealOnScroll
+              as="div"
+              key={s.title}
+              delay={i}
+              className="skill-card"
+            >
               <div className="cat">
                 <span className="ico">{s.icon}</span>
                 <h4>{s.title}</h4>
               </div>
               <ul>
                 {s.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item.label}>
+                    <span className="skill-icon">{item.icon}</span>
+                    {item.label}
+                  </li>
                 ))}
               </ul>
             </RevealOnScroll>
@@ -143,7 +196,10 @@ export const About = () => {
             <h3>Experience</h3>
             <div className="timeline">
               {experience.map((e) => (
-                <div className={`tl-item${e.now ? " now" : ""}`} key={e.role + e.org}>
+                <div
+                  className={`tl-item${e.now ? " now" : ""}`}
+                  key={e.role + e.org}
+                >
                   <div className="when">{e.when}</div>
                   <h4 className="what">
                     {e.role} <span className="org">· {e.org}</span>

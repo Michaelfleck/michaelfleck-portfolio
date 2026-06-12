@@ -578,13 +578,12 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 9px;
 }
-.skill-card li::before {
-  content: "";
-  width: 5px; height: 5px;
-  border-radius: 1px;
-  background: var(--accent);
+.skill-icon {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--accent);
   flex-shrink: 0;
-  transform: rotate(45deg);
 }
 
 /* Timeline */
