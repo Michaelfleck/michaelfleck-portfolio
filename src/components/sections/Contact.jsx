@@ -95,11 +95,13 @@ export const Contact = () => {
             <span className="num">04</span>&nbsp;Contact
           </RevealOnScroll>
           <RevealOnScroll as="h2">
-            Let's build something{" "}
-            <span className="grad-text">worth shipping.</span>
+            Want to{" "}
+            <span className="grad-text">chat </span>
+            or{" "}
+            <span className="grad-text">build something?</span>
           </RevealOnScroll>
           <RevealOnScroll as="p" delay={1}>
-            Have a role, a project, or just want to talk shop? My inbox is always
+            Have a role, a project, or just want to connect? My inbox is always
             open. I'll get back to you quickly.
           </RevealOnScroll>
           <RevealOnScroll as="div" delay={2} className="contact-channels">

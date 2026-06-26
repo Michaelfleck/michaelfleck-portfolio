@@ -14,7 +14,14 @@ const projects = [
     num: "/ 02",
     title: "Reddit → Spotify Playlist Creator",
     desc: "A backend service that generates Spotify playlists from trending Reddit posts, with robust API integrations and persistent token storage.",
-    tags: ["Node.js", "PostgreSQL", "Express", "Knex", "Spotify API", "Reddit API"],
+    tags: [
+      "Node.js",
+      "PostgreSQL",
+      "Express",
+      "Knex",
+      "Spotify API",
+      "Reddit API",
+    ],
     link: "https://github.com/Michaelfleck/SpotifyRedditMusicFinder",
     image: "/projects/reddit-spotify.png",
   },
@@ -28,11 +35,11 @@ const projects = [
   },
   {
     num: "/ 04",
-    title: "Plant Shop: E-Commerce App",
-    desc: "A full-stack plant store with live product data pulled from the Trefle.io botanical database, cart flow, and a clean responsive storefront.",
-    tags: ["React", "Node.js", "Express", "REST API", "Tailwind CSS"],
-    link: "https://github.com/Michaelfleck/Plant-Shop",
-    image: "/projects/plant-shop.png",
+    title: "AWS Streaming Data Pipeline",
+    desc: "Built an end-to-end streaming ingestion pipeline on AWS using Kinesis Data Streams and Lambda via event source mapping to process real-time data. Delivered data to S3 with date-based partitioning, configured a Glue Crawler for automated schema inference, and queried datasets via Athena.",
+    tags: ["Python", "AWS Kinesis", "Lambda", "S3", "Glue", "Athena"],
+    link: "https://github.com/Michaelfleck",
+    image: "/projects/aws-pipeline.png",
   },
 ];
 
@@ -46,9 +53,14 @@ export const Projects = () => {
         <RevealOnScroll as="h2" className="section-title">
           Things I've <span className="grad-text">built.</span>
         </RevealOnScroll>
-        <RevealOnScroll as="p" delay={1} className="lead" style={{ marginBottom: "48px" }}>
-          A few projects that show how I approach problems, from API integrations to
-          full-stack products.
+        <RevealOnScroll
+          as="p"
+          delay={1}
+          className="lead"
+          style={{ marginBottom: "48px" }}
+        >
+          A few projects that show how I approach problems, from data pipelines
+          and API integrations to full-stack products.
         </RevealOnScroll>
 
         <div className="projects-grid">

@@ -3,8 +3,9 @@ import { RevealOnScroll } from "../RevealOnScroll";
 import { ImageSlot } from "../ImageSlot";
 
 const TECH = [
-  "React", "TypeScript", "Node.js", "PostgreSQL", "GraphQL",
-  "Python", "Tailwind CSS", "Airflow", "GCP", "CI/CD",
+  "Python", "SQL", "Airflow", "Tableau", "BigQuery",
+  "AWS", "GCP", "ETL/ELT", "React", "TypeScript", "Next.js",
+  "Node.js", "PostgreSQL", "Terraform", "CI/CD", "Snowflake",
 ];
 
 export const Home = () => {
@@ -18,14 +19,17 @@ export const Home = () => {
     const el = typedRef.current;
     if (!el) return;
     const words = [
-      "Front-End Developer",
-      "Full-Stack Engineer",
-      "React Developer",
-      "Data & Platform Development",
+      "Data Engineer",
       "Data Analyst",
       "BI Developer",
+      "Full-Stack Engineer",
+      "Data & Platform Development",
+      "Front-End Developer",
     ];
-    let wi = 0, ci = 0, deleting = false, timer;
+    let wi = 0,
+      ci = 0,
+      deleting = false,
+      timer;
     const tick = () => {
       const word = words[wi];
       ci += deleting ? -1 : 1;
@@ -50,7 +54,11 @@ export const Home = () => {
     const hero = heroRef.current;
     const glow = glowRef.current;
     if (!hero || !glow) return;
-    let raf = null, tx = 0, ty = 0, cx = 0, cy = 0;
+    let raf = null,
+      tx = 0,
+      ty = 0,
+      cx = 0,
+      cy = 0;
     const loop = () => {
       cx += (tx - cx) * 0.12;
       cy += (ty - cy) * 0.12;
@@ -86,7 +94,11 @@ export const Home = () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = canvas.getContext("2d");
-    let w, h, dpr, particles = [], raf;
+    let w,
+      h,
+      dpr,
+      particles = [],
+      raf;
     const mouse = { x: -9999, y: -9999 };
     const COUNT = 64;
 
@@ -121,7 +133,8 @@ export const Home = () => {
         if (p.x < 0 || p.x > w) p.vx *= -1;
         if (p.y < 0 || p.y > h) p.vy *= -1;
 
-        const mdx = p.x - mouse.x, mdy = p.y - mouse.y;
+        const mdx = p.x - mouse.x,
+          mdy = p.y - mouse.y;
         const md = Math.hypot(mdx, mdy);
         if (md < 120 && md > 0) {
           p.x += (mdx / md) * (120 - md) * 0.015;
@@ -135,7 +148,8 @@ export const Home = () => {
 
         for (let j = i + 1; j < particles.length; j++) {
           const q = particles[j];
-          const dx = p.x - q.x, dy = p.y - q.y;
+          const dx = p.x - q.x,
+            dy = p.y - q.y;
           const d = Math.hypot(dx, dy);
           if (d < linkDist) {
             const a = (1 - d / linkDist) * 0.22;
@@ -204,9 +218,9 @@ export const Home = () => {
               <span className="cursor"></span>
             </p>
             <p className="intro">
-              I'm a software developer who thrives on solving complex problems and
-              building efficient, scalable systems by turning messy workflows into
-              clean, maintainable products people actually enjoy using.
+              I work across data engineering and front-end development, building
+              reliable pipelines, analytics tools, and scalable systems that
+              turn complex workflows into clean, maintainable products.
             </p>
             <div className="hero-actions">
               <a href="#projects" className="btn btn-primary">
@@ -236,7 +250,10 @@ export const Home = () => {
                   stroke="currentColor"
                   strokeWidth="2"
                 >
-                  <path d="M12 2v6M12 16v6M2 12h6M16 12h6" strokeLinecap="round" />
+                  <path
+                    d="M12 2v6M12 16v6M2 12h6M16 12h6"
+                    strokeLinecap="round"
+                  />
                   <circle cx="12" cy="12" r="3" />
                 </svg>
               </span>
