@@ -36,7 +36,7 @@ const projects = [
     desc: "Built an end-to-end streaming ingestion pipeline on AWS using Kinesis Data Streams and Lambda via event source mapping to process real-time data. Delivered data to S3 with date-based partitioning, configured a Glue Crawler for automated schema inference, and queried datasets via Athena.",
     tags: ["Python", "AWS Kinesis", "Lambda", "S3", "Glue", "Athena"],
     demo: null,
-    repo: "https://github.com/Michaelfleck",
+    repo: "https://github.com/Michaelfleck/aws-vitals-pipeline",
     image: "/projects/aws-pipeline.png",
   },
 ];
