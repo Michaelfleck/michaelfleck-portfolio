@@ -133,7 +133,7 @@ const skills = [
 const experience = [
   {
     when: "Sep 2025 — Current",
-    role: "Web Developer · Contract",
+    role: "Founder / Web Developer",
     org: "Paradane",
     desc: "Developed a responsive business landing page with Next.js, React, and TailwindCSS, engineering reusable components (nav, service cards, responsive layouts), implementing smooth scrolling and dynamic UI behaviors, and applying image optimization and SEO best practices.",
     now: true,
